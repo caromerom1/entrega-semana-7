@@ -2,13 +2,11 @@
 *Nota: La variable de entorno ```ghostUrl``` está configurada en el repositorio para apuntar a la dirección http://localhost:2368*
 ## Aplicación Objetivo de pruebas
 
-- Ghost version: 3.41.1
-
 - Ghost version: 5.47.1
 
 ## Tecnologías utilizadas
 
-- Node v14.21.3 & Node 16.20.0 Node v18.16.0
+- Node 16.20.0 Node v18.16.0
 
 - cypress v12.11.0
 
