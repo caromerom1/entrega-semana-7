@@ -1,0 +1,24 @@
+{
+  "name": "entrega-semana-7",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "resemble:run": "node cypress/resembleJS/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-andes:caromerom1/PruebasE2E.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.11.0"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "playwright": "^1.33.0",
+    "resemblejs": "^4.1.0"
+  }
+}
