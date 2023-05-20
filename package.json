@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "cypress:open": "cypress open",
-    "resemble:run": "node cypress/resembleJS/index.js"
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
