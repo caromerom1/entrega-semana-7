@@ -1,11 +1,14 @@
 import GENERAL_CONSTANTS from "../constants";
 import { loginPage } from "../../pages/login";
 import { createPostPage } from "../../pages/createPost";
+import DATA from '../../aPrioriData/createPost.json'
+
+const data = DATA[1]
 
 const CONSTANTS = {
-  POST_TITLE: "Test post",
-  POST_CONTENT: "Test post content",
-};
+  POST_TITLE: data.Title,
+  POST_CONTENT: data.Content,
+}
 
 beforeEach(() => {
   loginPage.login(

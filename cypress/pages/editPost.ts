@@ -7,7 +7,7 @@ class EditPostPage {
       cy.get("a[href='#/posts/?type=draft']").contains("Posts"),
   };
 
-  editPost(title, content) {
+  editPost(title: string, content: string) {
     if (title) {
       this.elements.postTitleInput().clear().type(title, { force: true });
     }

@@ -13,7 +13,12 @@ class CreateAccountPage {
     skipNormalFlowButton: () => cy.get("a.gh-done-pink"),
   };
 
-  createAccount(blogTitle, name, email, password) {
+  createAccount(
+    blogTitle: string,
+    name: string,
+    email: string,
+    password: string
+  ) {
     const signupUrl = `${ghostUrl}/ghost/#/setup`;
 
     cy.visit(signupUrl);

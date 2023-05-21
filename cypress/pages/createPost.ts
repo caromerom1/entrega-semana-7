@@ -19,7 +19,7 @@ class CreatePostPage {
     notification: () => cy.get("div[data-test-text='notification-content']"),
   };
 
-  createPost(title, content) {
+  createPost(title: string, content: string) {
     if (title) {
       this.elements.postTitleInput().type(title);
     }
@@ -32,7 +32,7 @@ class CreatePostPage {
     this.elements.publishPostRightNowButton().click();
   }
 
-  createAndUnpublishPost(title, content) {
+  createAndUnpublishPost(title: string, content: string) {
     this.createPost(title, content);
 
     this.elements.backToEditorButton().click();

@@ -5,15 +5,13 @@ class LoginPage {
     emailInput: () => cy.get("input[name='identification']"),
     passwordInput: () => cy.get("input[name='password']"),
     loginButton: () => cy.get("button.login"),
-  }
+  };
 
-  login(email, password) {
+  login(email: string, password: string) {
     cy.visit(`${ghostUrl}/ghost/#/signin`);
-    cy.wait(1000);
     this.elements.emailInput().type(email);
     this.elements.passwordInput().type(password);
     this.elements.loginButton().click();
-    cy.wait(1000);
   }
 }
 
