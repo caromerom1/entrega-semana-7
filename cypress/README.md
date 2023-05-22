@@ -52,4 +52,4 @@ Para la realización del ejercicio, se tuvieron en cuenta las 3 estrategias cono
 * 
 ***Nota: NO olvidar ejecutar el comando del punto 7***
 
-[Funcionalidades](https://github.com/caromerom1/entrega-semana-7/tree/main/cypress/aPrioriData)
+## [Funcionalidades](https://github.com/caromerom1/entrega-semana-7/tree/main/cypress/aPrioriData)
