@@ -1,5 +1,9 @@
 # Cypress
+
 *Nota: La variable de entorno ```ghostUrl``` está configurada en el repositorio para apuntar a la dirección http://localhost:2368*
+
+*Nota: la variable de entorno `apiKey` la cual corresponde a la API_KEY que brinda la api de mockaroo para hacer las pruebas de pool de datos (pseudo) aleatorio dinámicas*
+
 ## Aplicación Objetivo de pruebas
 
 - Ghost version: 5.47.1
@@ -50,6 +54,7 @@ Para la realización del ejercicio, se tuvieron en cuenta las 3 estrategias cono
 1. Por último, el orden para ejecutar los escenarios de forma exitosa es:
 * Editar perfil (Edit profile)
 * Crear post (Create post)
+
 ***Nota: NO olvidar ejecutar el comando del punto 7 antes de cada escenario***
 
 ## [Funcionalidades](https://github.com/caromerom1/entrega-semana-7/wiki/Funcionalidades)
