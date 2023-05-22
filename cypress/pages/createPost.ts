@@ -1,3 +1,10 @@
+const API_KEY = Cypress.env("apiKey");
+
+interface CreatePostMockarooData {
+  title: string;
+  content: string;
+}
+
 class CreatePostPage {
   elements = {
     postTitleInput: () => cy.get("textarea[placeholder='Post title']"),
@@ -19,17 +26,35 @@ class CreatePostPage {
     notification: () => cy.get("div[data-test-text='notification-content']"),
   };
 
+  requests = {
+    getMockarooPositiveData: () =>
+      cy
+        .request<CreatePostMockarooData>(
+          `https://my.api.mockaroo.com/create_post_positive.json?key=${API_KEY}`
+        )
+        .then((response) => response.body),
+    getMockarooNegativeData: () =>
+      cy
+        .request<CreatePostMockarooData>(
+          `https://my.api.mockaroo.com/create_post_negative.json?key=${API_KEY}`
+        )
+        .then((response) => response.body),
+  };
+
   createPost(title: string, content: string) {
+    this.typeContent(title, content);
+    this.elements.publishButton().click();
+    this.elements.confirmPublishButton().click();
+    this.elements.publishPostRightNowButton().click();
+  }
+
+  typeContent(title: string, content: string) {
     if (title) {
       this.elements.postTitleInput().type(title);
     }
     if (content) {
       this.elements.contentInput().type(content);
     }
-    this.elements.publishButton().click();
-    cy.wait(1000);
-    this.elements.confirmPublishButton().click();
-    this.elements.publishPostRightNowButton().click();
   }
 
   createAndUnpublishPost(title: string, content: string) {
