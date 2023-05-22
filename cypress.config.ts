@@ -10,5 +10,6 @@ module.exports = defineConfig({
   },
   env: {
     ghostUrl: "http://localhost:2368",
-  }
+    apiKey: "a418e7a0",
+  },
 });
