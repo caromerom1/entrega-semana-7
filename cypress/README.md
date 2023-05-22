@@ -45,11 +45,11 @@ Para la realización del ejercicio, se tuvieron en cuenta las 3 estrategias cono
 
 1. Ejecutar la versión de ghost a probar de forma local en el puerto 2368 (si se quiere otro puerto o la url de ghost es distinta, modificar el valor en el archivo ```cypress.config.ts```)
 
-1. Es importante tener en cuenta que, para el correcto funcionamiento de las pruebas, no se debe tener creado ningún usuario puesto que, al hacer login en todas, ghost impide realizar más de 100 inicios de sesión en una hora. Para esto, se puede ejecutar el siguiente comando desde el directorio de la aplicación ghost. ***Es importante ejecutarlo antes de cada escenario de pruebas para evitar el error*** ```rm content/data/ghost-local.db; ghost restart```
+1. Es importante tener en cuenta que, para el correcto funcionamiento de las pruebas, no se debe tener creado ningún usuario puesto que, al hacer login en todas, ghost impide realizar más de 100 inicios de sesión en una hora. Para esto, se puede ejecutar el siguiente comando desde el directorio de la aplicación ghost. ***Es importante ejecutarlo antes de cada escenario de pruebas para evitar el error*** ```rm content/data/ghost-local.db; ghost restart```. Seguido de este comando, ejecutar el escenario de crear cuenta (createAccount) para continuar el proceso sin problemas
 
 1. Por último, el orden para ejecutar los escenarios de forma exitosa es:
 * Editar perfil (Edit profile)
-* 
+* Crear post (Create post)
 ***Nota: NO olvidar ejecutar el comando del punto 7 antes de cada escenario***
 
 ## [Funcionalidades](https://github.com/caromerom1/entrega-semana-7/wiki/Funcionalidades)
