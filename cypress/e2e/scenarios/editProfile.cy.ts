@@ -1,8 +1,10 @@
+import { faker } from "@faker-js/faker";
+
+import mockarooNegativeData from "../../aPrioriData/editProfileNegative.json";
+import mockarooPositiveData from "../../aPrioriData/editProfilePositive.json";
 import { editProfilePage } from "../../pages/editProfile";
 import { loginPage } from "../../pages/login";
 import GENERAL_CONSTANTS from "../constants";
-import mockarooPositiveData from "../../aPrioriData/editProfilePositive.json";
-import mockarooNegativeData from "../../aPrioriData/editProfileNegative.json";
 
 describe("Edit profile", () => {
   beforeEach(() => {
@@ -14,7 +16,7 @@ describe("Edit profile", () => {
     editProfilePage.visitEditProfilePage();
   });
 
-  describe("A priori data", () => {
+  describe("A priori data - mockaroo json data", () => {
     describe("Positive cases", () => {
       mockarooPositiveData.forEach((dataPool) => {
         it("should be able to edit user location", () => {
@@ -90,7 +92,7 @@ describe("Edit profile", () => {
     });
   });
 
-  describe("Pseudorandom data", () => {
+  describe("Pseudorandom data - mockaroo api data", () => {
     describe("Positive cases", () => {
       it("should be able to edit user location", () => {
         editProfilePage.requests
@@ -200,6 +202,78 @@ describe("Edit profile", () => {
         editProfilePage.requests.getMockarooNegativeData().then(({ bio }) => {
           editProfilePage.tests.negative.editBio(bio);
         });
+      });
+    });
+  });
+
+  describe("Random data - faker-js data", () => {
+    describe("Positive cases", () => {
+      it("should be able to edit user location", () => {
+        editProfilePage.tests.positive.editLocation(faker.location.country());
+      });
+
+      it("should auto include the facebook url when input gets unfocused", () => {
+        editProfilePage.tests.positive.editFacebook(faker.internet.userName());
+      });
+
+      it("should be able to edit user email", () => {
+        editProfilePage.tests.positive.editEmail(faker.internet.email());
+      });
+
+      it("should be able to edit user name", () => {
+        editProfilePage.tests.positive.editName(faker.person.fullName());
+      });
+
+      it("should be able to edit user slug", () => {
+        editProfilePage.tests.positive.editSlug(faker.lorem.slug());
+      });
+
+      it("should be able to edit user twitter", () => {
+        editProfilePage.tests.positive.editTwitter(faker.internet.userName());
+      });
+
+      it("should be able to edit user website", () => {
+        editProfilePage.tests.positive.editWebsite(faker.internet.url());
+      });
+
+      it("should be able to edit user bio", () => {
+        editProfilePage.tests.positive.editBio(faker.lorem.sentence());
+      });
+
+      // Cleanup of the tests by updating the email to the original one to not alter future tests
+      after(() => {
+        editProfilePage.visitEditProfilePage();
+
+        const defaultEmail = "test@test.com";
+
+        editProfilePage.editProfile({ email: defaultEmail });
+        GENERAL_CONSTANTS.VALID_EMAIL = defaultEmail;
+
+        editProfilePage.elements.saveButton().click();
+      });
+    });
+
+    describe("Negative cases", () => {
+      it("should error when email is invalid", () => {
+        editProfilePage.tests.negative.editProfile(faker.internet.url());
+      });
+
+      it("should error when facebook profile is invalid", () => {
+        editProfilePage.tests.negative.editFacebook(faker.internet.url());
+      });
+
+      it("should error when twitter profile is invalid", () => {
+        editProfilePage.tests.negative.editTwitter(faker.internet.emoji());
+      });
+
+      it("should error when twitter username is invalid", () => {
+        editProfilePage.tests.negative.editTwitterUsername(
+          faker.internet.email()
+        );
+      });
+
+      it("should error when bio is too long", () => {
+        editProfilePage.tests.negative.editBio(faker.lorem.paragraphs());
       });
     });
   });
