@@ -50,6 +50,6 @@ Para la realización del ejercicio, se tuvieron en cuenta las 3 estrategias cono
 1. Por último, el orden para ejecutar los escenarios de forma exitosa es:
 * Editar perfil (Edit profile)
 * 
-***Nota: NO olvidar ejecutar el comando del punto 7***
+***Nota: NO olvidar ejecutar el comando del punto 7 antes de cada escenario***
 
 ## [Funcionalidades](https://github.com/caromerom1/entrega-semana-7/wiki/Funcionalidades)
